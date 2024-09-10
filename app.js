@@ -7,7 +7,7 @@ const flash = require("connect-flash")
 
 require("dotenv").config();
 
-const ownersRouter =  require('./routes/ownersRouter')
+const adminsRouter =  require('./routes/adminsRouter')
 const index =  require('./routes/index')
 const usersRouter =  require('./routes/usersRouter')
 const productsRoutes =  require('./routes/productsRoutes')
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, "public")))
 app.set("view engine", "ejs")
 
 app.use("/", index)
-app.use("/owners", ownersRouter)
+app.use("/admins", adminsRouter)
 app.use("/users", usersRouter)
 app.use("/products", productsRoutes)
 

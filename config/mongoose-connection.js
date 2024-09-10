@@ -5,11 +5,14 @@ mongoose
 .connect(`${config.get("MONGODB_URI")}/scatch`)
 .then(function(){
    dbgr("connected");
-   console.log("connected");
 })
 .catch(function(err){
    dbgr(err);
 })
+
+//  $env:NODE_ENV="development"
+//  $env:DEBUG="development:*"
+
 
 
 module.exports = mongoose.connection

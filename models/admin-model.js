@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const userSchema = mongoose.Schema({
+const adminSchema = mongoose.Schema({
     fullname: {
         type: String,
         minLenght: 3,
@@ -8,24 +8,27 @@ const userSchema = mongoose.Schema({
     },
     email: String,
     password: String,
+    products: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "product",
+        }
+    ],
     cart: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "product"
     }],
     isadmin: {
-        type:Boolean,
-        default: false
-    },
-    orders: {
-        type: Array,
-        default: []
+        type: Boolean,
+        default: true
     },
     contact: Number,
     picture: String,
+    gstin: String,
     date: {
         type: Date,
         default: Date.now()
     },
 })
 
-module.exports = mongoose.model("user", userSchema)
+module.exports = mongoose.model("admin", adminSchema)
